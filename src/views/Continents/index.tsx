@@ -12,7 +12,7 @@ const Continents = () => {
 
   return (
     <div>
-      {data.continents.map((item: any) => (
+      {data?.continents?.map((item: any) => (
         <Link to={`/continents/${item.code}`} key={item.code}>
           {item.code} {item.name}
         </Link>
