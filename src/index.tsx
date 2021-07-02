@@ -18,7 +18,7 @@ import { config } from 'globals/config';
 const errorLink = onError(({ graphQLErrors }) => {
   if (graphQLErrors) {
     graphQLErrors.map(({ message }) => {
-      alert(`Graphql error ${message}`);
+      return message;
     });
   }
 });
