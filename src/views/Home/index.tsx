@@ -1,11 +1,6 @@
-import { Link } from 'react-router-dom';
-
+import { StyledLink } from './styles';
 const Home = () => {
-  return (
-    <div>
-      <Link to={'/continents'}> Zobacz Kontynenty</Link>
-    </div>
-  );
+  return <StyledLink to={'/continents'}> Zobacz Kontynenty</StyledLink>;
 };
 
 export default Home;

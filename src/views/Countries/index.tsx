@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { ICountry } from 'types';
 import { GET_COUNTRIES } from 'graphql/queries';
+import { Wrapper, StyledItem } from './styles';
 
 interface ParamTypes {
   code: string;
@@ -21,17 +22,17 @@ const Countries = () => {
   if (error) return <div>Error...</div>;
 
   return (
-    <div>
+    <Wrapper>
       {data?.continent?.countries?.map(
         ({ name, emoji, languages }: ICountry) => (
-          <div key={name}>
-            {name}
-            {emoji}
-            {languages[0]?.name}
-          </div>
+          <StyledItem key={name}>
+            <div>Nazwa: {name}</div>
+            <div>{emoji}</div>
+            <div>Język: {languages[0]?.name}</div>
+          </StyledItem>
         )
       )}
-    </div>
+    </Wrapper>
   );
 };
 
