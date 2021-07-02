@@ -1,6 +1,7 @@
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 
+import { ICountry } from 'types';
 import { GET_COUNTRIES } from 'graphql/queries';
 
 interface ParamTypes {
@@ -21,13 +22,15 @@ const Countries = () => {
 
   return (
     <div>
-      {data?.continent?.countries?.map((item: any) => (
-        <div>
-          {item.name}
-          {item.emoji}
-          {item.languages[0]?.name}
-        </div>
-      ))}
+      {data?.continent?.countries?.map(
+        ({ name, emoji, languages }: ICountry) => (
+          <div key={name}>
+            {name}
+            {emoji}
+            {languages[0]?.name}
+          </div>
+        )
+      )}
     </div>
   );
 };
